@@ -40,7 +40,7 @@ python -m venv .venv
 .venv\Scripts\python build.py
 ```
 
-The `dist` folder contains the portable ZIP, app source ZIP and SHA-256 checksums. GitHub Actions provides the same build on manual dispatch or tags matching `v*`. A tag build publishes a **draft prerelease** for review; publish it from Releases to make downloads public. Keep the tag and `VERSION` in `build.py` aligned.
+The `dist` folder contains the portable ZIP, app source ZIP and SHA-256 checksums. GitHub Actions builds on pushes to main, manual dispatch or tags matching `v*`. It publishes a preview release for `VERSION` in `build.py` if that release does not already exist. Bump VERSION for the next release. Downloads are publicly accessible only when the repository is public.
 
 ## License
 

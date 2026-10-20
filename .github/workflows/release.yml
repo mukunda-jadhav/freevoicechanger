@@ -2,6 +2,7 @@ name: Windows desktop build
 on:
   workflow_dispatch:
   push:
+    branches: [main]
     tags: ['v*']
 permissions:
   contents: read
@@ -26,11 +27,18 @@ jobs:
           path: |
             dist/*.zip
             dist/SHA256SUMS.txt
-      - name: Create draft prerelease
-        if: startsWith(github.ref, 'refs/tags/')
+      - name: Publish desktop preview
         env:
           GH_TOKEN: ${{ github.token }}
         shell: pwsh
         run: |
           $assets = (Get-ChildItem dist/*.zip).FullName
-          gh release create "$env:GITHUB_REF_NAME" @assets dist/SHA256SUMS.txt --draft --prerelease --title "FreeVoice $env:GITHUB_REF_NAME" --notes "Windows x64 portable preview. Extract the entire ZIP and open FreeVoice.exe. DSP effects only; no AI voice models or virtual microphone driver."
+          $version = python -c "from build import VERSION; print(VERSION)"
+          $tag = "v$version"
+          gh release view $tag --json tagName 2>$null
+          if ($LASTEXITCODE -eq 0) {
+            Write-Host "Release $tag already exists; build artifacts retained. Bump VERSION for a new release."
+          } else {
+            gh release create $tag @assets dist/SHA256SUMS.txt --target "$env:GITHUB_SHA" --prerelease --title "FreeVoice $tag" --notes "Windows x64 portable preview. Extract the entire ZIP and open FreeVoice.exe. DSP effects only; no AI voice models or virtual microphone driver."
+            if ($LASTEXITCODE -ne 0) { throw 'Release publication failed.' }
+          }
