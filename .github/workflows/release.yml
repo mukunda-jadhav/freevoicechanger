@@ -1,0 +1,36 @@
+name: Windows desktop build
+on:
+  workflow_dispatch:
+  push:
+    tags: ['v*']
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: windows-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+          architecture: x64
+      - name: Install build dependencies
+        run: python -m pip install -r requirements-build.txt
+      - name: Build desktop package
+        run: python build.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: FreeVoice-Windows-x64
+          path: |
+            dist/*.zip
+            dist/SHA256SUMS.txt
+      - name: Create draft prerelease
+        if: startsWith(github.ref, 'refs/tags/')
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: pwsh
+        run: |
+          $assets = (Get-ChildItem dist/*.zip).FullName
+          gh release create "$env:GITHUB_REF_NAME" @assets dist/SHA256SUMS.txt --draft --prerelease --title "FreeVoice $env:GITHUB_REF_NAME" --notes "Windows x64 portable preview. Extract the entire ZIP and open FreeVoice.exe. DSP effects only; no AI voice models or virtual microphone driver."

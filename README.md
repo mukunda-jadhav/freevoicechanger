@@ -47,4 +47,3 @@ The `dist` folder contains the portable ZIP, app source ZIP and SHA-256 checksum
 Original app code: GPL-3.0-or-later; see LICENSE. Dependencies retain their own licenses. Pedalboard notices are included. Binary packages preserve installed third-party license notices and a package inventory. Source is provided in the repository and matching release source ZIP. Dependency source distributions are available from their versioned PyPI project pages and upstream projects; retain their required notices and source availability when redistributing.
 
 This is an independently written app. No Voicemod code, models, extracted resources, account data or branding are distributed.
-
