@@ -1,31 +1,41 @@
 # FreeVoice
 
-Windows desktop voice changer with one ready-made female RVC voice (VCTK p231).
-The current implementation is in **desktop/**. Root-level DSP files are an older prototype.
+Windows desktop voice changer with **one female voice**. Runs locally, with no training or Python installation needed.
 
-The app offers microphone/output selection, pitch control, CPU or NVIDIA GPU processing,
-and Start/Stop. It performs local streaming conversion without training or an account.
-Calls require a separately installed virtual audio cable. Audio blocks are 500 ms;
-additional model and device buffering produces noticeable delay.
+[![Download desktop app for Windows](https://img.shields.io/badge/Download_desktop_app-Windows_x64-7253D6?style=for-the-badge&logo=windows)](https://github.com/mukunda-jadhav/freevoicechanger/releases/tag/desktop-preview)
 
-## Status
+## Download and install
 
-A short example was rendered with the ready-made voice. Live microphone routing and
-the executable on a clean machine still need user validation. This is a private
-development preview, not a promise of Voicemod-level quality.
+1. Open the download button above and expand **Assets**.
+2. Download **FreeVoice-Setup-Windows-x64.exe** and **every matching .bin file** into the same folder.
+3. Run the setup EXE. Open **FreeVoice** from the desktop shortcut.
 
-## Build / download
+Keep all installer files together until installation finishes. The data files contain the voice and GPU runtime; they are not source code. The download is several GB. The installer is unsigned.
 
-See [desktop/BUILD.md](desktop/BUILD.md). The manual **Actions → FreeVoice ready-made
-voice desktop build** workflow produces a Windows artifact containing FreeVoice.exe
-and its runtime. Extract the complete artifact before opening FreeVoice.exe.
-No Python installation is needed to use the packaged executable.
+**Private development preview:** sign in to GitHub with an account that has access to this repository. Downloads are not public while the repository is private.
+
+## Use
+
+- Select your microphone and headphones/output device.
+- Choose NVIDIA GPU for faster processing, or CPU (which may not keep up).
+- Start at pitch **+12** and adjust to your voice.
+- Press **Start**, then **Stop** when finished.
+
+For Discord, games, or calls, install a virtual audio cable separately. Select its playback/input device as FreeVoice's output, then its recording/output device as the microphone in your calling app. Use headphones to avoid feedback.
+
+## Current limitations
+
+This is an early preview. A short audio example has been rendered with the model, but live microphone routing and a clean-machine executable launch still need user validation. Audio blocks are 500 ms, plus model and device buffering; expect noticeable delay. Naturalness depends on the speaker and microphone.
+
+## Source and builds
+
+The current application is in **desktop/**. Root-level DSP files are an older prototype.
+See [build instructions](desktop/BUILD.md). The Windows release workflow builds the executable and installer on GitHub and publishes the development preview. The installer includes corresponding app/inference source and license notices.
 
 ## Voice and licenses
 
-- Voice: [Nekochu's VCTK p231 model](https://huggingface.co/Nekochu/RVC-VCTK_Voice-sample), model card Apache-2.0.
-- Inference: RVC Project (MIT), pinned source revision recorded in prepare_build.py.
+- One ready-made [VCTK p231 female voice by Nekochu](https://huggingface.co/Nekochu/RVC-VCTK_Voice-sample), model card Apache-2.0.
+- Inference: RVC Project (MIT); pinned revision in `desktop/prepare_build.py`.
 - App distribution: GPL-3.0-or-later due to bundled Parselmouth/Praat; component notices apply.
 
 No personal recordings, custom training datasets or custom voice checkpoints are included.
-The repository remains private during development.
