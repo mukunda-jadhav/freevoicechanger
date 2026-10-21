@@ -1,49 +1,31 @@
 # FreeVoice
 
-A free Windows desktop voice-effects app with local processing, eight presets, editable effects, a soundboard, and WAV recording. No account or subscription.
+Windows desktop voice changer with one ready-made female RVC voice (VCTK p231).
+The current implementation is in **desktop/**. Root-level DSP files are an older prototype.
 
-## Download and open
+The app offers microphone/output selection, pitch control, CPU or NVIDIA GPU processing,
+and Start/Stop. It performs local streaming conversion without training or an account.
+Calls require a separately installed virtual audio cable. Audio blocks are 500 ms;
+additional model and device buffering produces noticeable delay.
 
-Download `FreeVoice-0.1.0-Windows-x64.zip` from this repository's **Releases** page, extract the entire folder, and double-click **FreeVoice.exe**. Keep the `_internal` folder beside the executable. Python and command-line setup are not required for this portable build. The initial release is unsigned.
+## Status
 
-Select a microphone and output, put on headphones, select a preset, and click **Start microphone**. Capture only starts when you press that button. Closing the window stops capture and finalizes recording.
+A short example was rendered with the ready-made voice. Live microphone routing and
+the executable on a clean machine still need user validation. This is a private
+development preview, not a promise of Voicemod-level quality.
 
-## Features
+## Build / download
 
-- Eight presets: Natural, Feminine / higher (DSP), Bright / higher (DSP), Deep voice, Robot, Radio, Echo, Space choir.
-- Adjustable pitch, gain, reverb, distortion, chorus, delay, robot modulation and radio filtering.
-- Save/load JSON presets; persistent soundboard clip paths in `%LOCALAPPDATA%\FreeVoice\soundboard.json`.
-- Soundboard clips up to 120 seconds each, within a 256 MB decoded memory budget, one clip at a time.
-- Microphone mute, effect bypass, level display, processed mono WAV recording.
-- App shortcuts: Ctrl+M mute, Ctrl+B bypass, F1–F8 clips, Escape stop clip.
-- Optional global shortcuts: Ctrl+Alt+F1–F8 clips, Ctrl+Alt+M mute, Ctrl+Alt+B bypass, Ctrl+Alt+S stop clip. Other apps may already own these keys.
+See [desktop/BUILD.md](desktop/BUILD.md). The manual **Actions → FreeVoice ready-made
+voice desktop build** workflow produces a Windows artifact containing FreeVoice.exe
+and its runtime. Extract the complete artifact before opening FreeVoice.exe.
+No Python installation is needed to use the packaged executable.
 
-## Use in calls
+## Voice and licenses
 
-A virtual audio cable is required separately. With optional [VB-CABLE](https://vb-audio.com/Cable/), choose **CABLE Input** as FreeVoice output and **CABLE Output** as the microphone in Discord or your game. FreeVoice does not bundle or install a driver.
+- Voice: [Nekochu's VCTK p231 model](https://huggingface.co/Nekochu/RVC-VCTK_Voice-sample), model card Apache-2.0.
+- Inference: RVC Project (MIT), pinned source revision recorded in prepare_build.py.
+- App distribution: GPL-3.0-or-later due to bundled Parselmouth/Praat; component notices apply.
 
-## Quality and current limits
-
-This is an early DSP prototype. The feminine preset raises pitch; it is **not natural AI male-to-female conversion**. It does not independently adjust formants. Granular pitch shifting can introduce audible modulation. It has no AI model library, cloud generation, voice cloning or complete Voicemod feature parity.
-
-Audio uses 48 kHz mono, 1,024-frame blocks. The pitch delay window is about 43 ms; queues and device buffering add latency. Live device compatibility and perceived quality remain unverified. Output is hard-clipped at ±0.98; reduce gain if it sounds harsh. Preset changes reset effect history. Recording captures the processed mix before device playback.
-
-Prior source checks passed eight synthetic presets, pitch shifting, recording finalization, invalid preset rejection, callback sample delivery and interface construction. Global shortcut registration was rejected in the check environment. The packaged executable has not been tested on a clean Windows machine.
-
-## Build from source (developers only)
-
-On Windows x64 with Python 3.13:
-
-```powershell
-python -m venv .venv
-.venv\Scripts\python -m pip install -r requirements-build.txt
-.venv\Scripts\python build.py
-```
-
-The `dist` folder contains the portable ZIP, app source ZIP and SHA-256 checksums. GitHub Actions builds on pushes to main, manual dispatch or tags matching `v*`. It publishes a preview release for `VERSION` in `build.py` if that release does not already exist. Bump VERSION for the next release. Downloads are publicly accessible only when the repository is public.
-
-## License
-
-Original app code: GPL-3.0-or-later; see LICENSE. Dependencies retain their own licenses. Pedalboard notices are included. Binary packages preserve installed third-party license notices and a package inventory. Source is provided in the repository and matching release source ZIP. Dependency source distributions are available from their versioned PyPI project pages and upstream projects; retain their required notices and source availability when redistributing.
-
-This is an independently written app. No Voicemod code, models, extracted resources, account data or branding are distributed.
+No personal recordings, custom training datasets or custom voice checkpoints are included.
+The repository remains private during development.

@@ -1,0 +1,18 @@
+Female model and index:
+Nekochu, RVC-VCTK_Voice-sample, p231/rmvpe.
+Model card declares Apache License 2.0.
+Model SHA256: 12f819e129c6e48779439e491b85593b8819d094f751c3515ea13be6bd8b5a59
+Index SHA256: 14c3a6fb421ed0c77654bb9ed5778307ff0204d7b047b6bbe37922af42f601ab
+Source: https://huggingface.co/Nekochu/RVC-VCTK_Voice-sample
+
+RVC inference code: RVC Project, MIT; license included in RVC-LICENSE.txt.
+Shared model assets distributed by lj1995/VoiceConversionWebUI.
+HuBERT/ContentVec and RMVPE retain their respective upstream authorship.
+
+This package includes Python, PyTorch, torchaudio, Transformers, NumPy,
+SciPy, librosa, FAISS, Parselmouth and sounddevice plus dependencies.
+Their installed distribution metadata and license files are included
+in the packaged runtime where supplied by the respective packages.
+Parselmouth/Praat uses GPL-3.0-or-later; this combined app is distributed
+under GPL-3.0-or-later, subject also to the included component notices.
+The app's corresponding source and build script accompany the distribution.
