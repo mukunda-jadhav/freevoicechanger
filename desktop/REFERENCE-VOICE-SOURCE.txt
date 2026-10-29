@@ -1,7 +1,9 @@
 Female reference voice source
 
-The included file assets/reference/female-reference.wav is the public
-Seed-VC demo sample examples/reference/s1p1.wav:
+The included file assets/reference/female-reference.wav is a short excerpt
+(11.3–14.3 seconds) from the public Seed-VC demo sample
+examples/reference/s1p1.wav. It is lightly level-normalized and has short edge
+fades to remove silence at the boundaries:
 https://huggingface.co/spaces/Plachta/Seed-VC/resolve/main/examples/reference/s1p1.wav
 
 A public voice mapping lists this sample as female and the matching s1p2 sample

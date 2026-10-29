@@ -19,8 +19,9 @@ Use a microphone and headphones. RNNoise can reduce steady room noise, but
 speech quality also depends on the input device and speaking distance.
 
 The app uses short audio blocks and reports its estimated delay and processing
-time while live. Voice quality varies by language, mic, and speaker; try a
-short call before relying on it.
+time while live. Noise reduction is off by default to preserve voice detail;
+enable it only when steady room noise is a problem. Voice quality varies by
+language, mic, and speaker; try a short call before relying on it.
 
 See MODEL-LICENSE.txt, REFERENCE-VOICE-SOURCE.txt, SEEDVC-LICENSE.txt, and
 THIRD-PARTY-NOTICES.txt.

@@ -136,14 +136,14 @@ class App(tk.Tk):
         self.input = self.combo(input_col, "MICROPHONE INPUT")
         self.output = self.combo(output_col, "VOICE OUTPUT")
 
-        self.noise_suppression = tk.BooleanVar(value=True)
+        self.noise_suppression = tk.BooleanVar(value=False)
         self.noise_check = ttk.Checkbutton(
-            audio_card, text="Reduce steady background noise",
+            audio_card, text="Reduce background noise (may color voice)",
             variable=self.noise_suppression,
             style="Card.TCheckbutton",
         )
         self.noise_check.pack(anchor="w", pady=(5, 0))
-        ttk.Label(audio_card, text="RNNoise runs before voice conversion.",
+        ttk.Label(audio_card, text="Leave off with a clean mic; enable only in a noisy room.",
                   style="CardText.TLabel").pack(anchor="w", padx=(24, 0), pady=(0, 0))
 
         settings_row = ttk.Frame(box)
@@ -337,7 +337,7 @@ class App(tk.Tk):
                 extra_time_ce=2.5,
                 extra_time=0.5,
                 extra_time_right=0.02,
-                diffusion_steps=6,
+                diffusion_steps=8,
                 inference_cfg_rate=0.7,
                 max_prompt_length=3.0,
             )
