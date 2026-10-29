@@ -1,30 +1,30 @@
 [Setup]
-AppId=FreeVoiceReadyVoice
-AppName=FreeVoice
-AppVersion=0.2.0
+AppId=FemaleVocalIndic
+AppName=FemaleVocal
+AppVersion=0.3.0
 AppPublisher=FreeVoice contributors
-DefaultDirName={localappdata}\Programs\FreeVoice
-DefaultGroupName=FreeVoice
+DefaultDirName={localappdata}\Programs\FemaleVocal
+DefaultGroupName=FemaleVocal
 PrivilegesRequired=lowest
 ArchitecturesAllowed=x64compatible
 ArchitecturesInstallIn64BitMode=x64compatible
 OutputDir=release
-OutputBaseFilename=FreeVoice-Setup-Windows-x64
+OutputBaseFilename=FemaleVocal-Indic-Setup-Windows-x64
 Compression=lzma2/fast
 SolidCompression=yes
 DiskSpanning=yes
 DiskSliceSize=1900000000
 SlicesPerDisk=1
 LicenseFile=LICENSE
-UninstallDisplayIcon={app}\FreeVoice.exe
+UninstallDisplayIcon={app}\FemaleVocalIndic.exe
 WizardStyle=modern
 
 [Files]
-Source: "dist\FreeVoice\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "dist\FemaleVocalIndic\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 
 [Icons]
-Name: "{group}\FreeVoice"; Filename: "{app}\FreeVoice.exe"
-Name: "{autodesktop}\FreeVoice"; Filename: "{app}\FreeVoice.exe"
+Name: "{group}\FemaleVocal"; Filename: "{app}\FemaleVocalIndic.exe"
+Name: "{autodesktop}\FemaleVocal"; Filename: "{app}\FemaleVocalIndic.exe"
 
 [Run]
-Filename: "{app}\FreeVoice.exe"; Description: "Open FreeVoice"; Flags: nowait postinstall skipifsilent unchecked
+Filename: "{app}\FemaleVocalIndic.exe"; Description: "Open FemaleVocal"; Flags: nowait postinstall skipifsilent unchecked

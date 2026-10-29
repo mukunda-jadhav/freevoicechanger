@@ -1,21 +1,19 @@
-# Build FreeVoice
+# Build FemaleVocalIndic
 
-Use Windows x64 and Python 3.12. The packaged app does not need Python installed.
+Use Windows x64, Python 3.12, and an NVIDIA driver with CUDA support. The
+runtime checkpoint and public reference are in assets. The shared encoder
+and vocoder weights download the first time the app starts.
 
-```powershell
-python -m venv .venv
-.venv\Scripts\python -m pip install torch==2.7.1+cu118 torchaudio==2.7.1+cu118 --index-url https://download.pytorch.org/whl/cu118
-.venv\Scripts\python -m pip install -r requirements-app.txt
-.venv\Scripts\python prepare_build.py
-.venv\Scripts\python build_desktop.py
-```
+    py -3.12 -m venv .venv
+    .venv\Scripts\python -m pip install torch==2.7.1+cu118 torchaudio==2.7.1+cu118 --index-url https://download.pytorch.org/whl/cu118
+    .venv\Scripts\python -m pip install -r requirements-app.txt
+    .venv\Scripts\python prepare_build.py
+    .venv\Scripts\python build_desktop.py
+    .venv\Scripts\python package_source.py
 
-The result is `dist/FreeVoice/FreeVoice.exe` plus its `_internal` folder.
-Ship the whole directory, README, notices and corresponding source together.
-Git and curl are needed only to prepare the build.
+The result is dist/FemaleVocalIndic/FemaleVocalIndic.exe plus its _internal
+folder. Keep and distribute the complete folder, not the executable alone.
 
-The ready-made p231 model has been used to render a short sample. Live microphone
-routing and a clean-machine executable launch have not yet been verified.
-No quality claim is implied by successful packaging.
-
-Do not include personal voice recordings, training logs, or checkpoints in a release.
+Model components download to %LOCALAPPDATA%\FemaleVocal\models. If you
+redistribute the app, include its source archive and license notices and
+comply with the included GPL-3.0 license.

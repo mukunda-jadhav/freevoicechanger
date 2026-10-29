@@ -1,37 +1,27 @@
-FreeVoice — ready-made female voice
+FemaleVocal — live male-to-female voice changer
 
-Open FreeVoice.exe. No Python installation or command entry is needed.
-Keep the _internal folder beside the executable.
+This copy uses the IndicVoiceChanger Seed-VC model with one public female
+reference voice. The target reference is the female `s1p1` sample from the
+public Seed-VC demo set. It is intended for English, Hindi, and Marathi speech.
+The app processes audio on your PC; it does not send microphone audio to a
+server.
 
-1. Select your microphone and headphones.
-2. Select NVIDIA GPU (faster) or CPU (uses no GPU).
-3. Start with pitch +12; adjust between +7 and +12 to suit your voice.
-4. Press Start voice changer. Loading may take a while.
-5. Press Stop when finished. Closing the window also stops audio.
+Open FemaleVocalIndic.exe from the complete FemaleVocalIndic folder.
+Choose your microphone and output device, select NVIDIA GPU for lower delay,
+and start conversion. For WhatsApp, use CABLE Input as the app output and
+CABLE Output as WhatsApp's microphone. A virtual audio cable is installed
+separately.
 
-For Discord, games, or calls:
-You need a virtual audio cable installed separately.
-Select its playback/Input device as FreeVoice's output. Select the
-corresponding recording/Output device as the microphone in the calling app.
-This app does not install a virtual audio driver.
+The first start downloads shared model components once. This can require
+about 1–2 GB of internet data and is saved under
+%LOCALAPPDATA%\FemaleVocal\models. After that, the model runs locally.
+Use a microphone and headphones. RNNoise can reduce steady room noise, but
+speech quality also depends on the input device and speaking distance.
 
-Use headphones to avoid feedback. There is noticeable delay: blocks are
-500 ms, plus model lookahead and audio-device buffering. CPU performance
-may be too slow for uninterrupted speech. The status line reports processing
-time and overloads. Naturalness depends on the speaker and microphone.
+The app uses short audio blocks and reports its estimated delay and processing
+time while live. Voice quality varies by language, mic, and speaker; try a
+short call before relying on it.
 
-This version contains one pretrained VCTK p231 female voice. It does not
-use your friend's recordings or train models. All conversion runs locally.
-No guarantee is made that it matches Voicemod quality.
-
-Logs: %LOCALAPPDATA%\FreeVoice
-
-Credits:
-RVC-Project/Retrieval-based-Voice-Conversion-WebUI — MIT (RVC-LICENSE.txt)
-Nekochu/RVC-VCTK_Voice-sample, F/p231/rmvpe — Apache-2.0
-https://huggingface.co/Nekochu/RVC-VCTK_Voice-sample
-Training dataset: CSTR Edinburgh VCTK; attribution retained here.
-Shared HuBERT and RMVPE assets:
-https://huggingface.co/lj1995/VoiceConversionWebUI
-App streaming adapter and UI are modified integrations, not upstream GUIs.
-See THIRD-PARTY-NOTICES.txt for redistribution notes.
+See MODEL-LICENSE.txt, REFERENCE-VOICE-SOURCE.txt, SEEDVC-LICENSE.txt, and
+THIRD-PARTY-NOTICES.txt.
+This local build includes the matching source archive.
