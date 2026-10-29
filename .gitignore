@@ -1,7 +1,42 @@
+# Python environments and generated files
 .venv/
+.venv*/
+venv/
+env/
 __pycache__/
+*.py[cod]
+*.log
+
+# Build output
 build/
 dist/
+release/
 *.spec
-soundboard.json
+
+# Credentials and editor settings
+.env
+.env.*
+!.env.example
+.vscode/
+.idea/
+
+# Downloaded model weights and local model caches
+desktop/assets/weights/*.pth
+desktop/assets/weights/*.index
+desktop/assets/hubert_base/*.bin
+desktop/assets/rmvpe/*.pt
+desktop/checkpoints/
+desktop/.vendor-rvc/
+desktop/.vendor-seedvc/
+desktop/.cache/
+
+# Ignore local recordings by default; keep only the bundled public reference
 *.wav
+*.mp3
+*.flac
+!desktop/assets/
+!desktop/assets/reference/
+!desktop/assets/reference/female-reference.wav
+
+# Local soundboard/user settings
+soundboard.json

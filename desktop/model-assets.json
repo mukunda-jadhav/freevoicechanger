@@ -1,32 +1,7 @@
 [
   {
-    "sha256": "0346950779dfb7f9316fa74ed846e2b8a22a08eedfdc5387b73f327cb1a4a7cf",
-    "destination": "assets/hubert_base/config.json",
-    "url": "https://huggingface.co/lj1995/VoiceConversionWebUI/resolve/main/hubert_base/config.json"
-  },
-  {
-    "sha256": "7c1976a680fb7acc757cd36fb08eef878fa36c70b4c9d2d595df9c608bbbbf0e",
-    "destination": "assets/hubert_base/preprocessor_config.json",
-    "url": "https://huggingface.co/lj1995/VoiceConversionWebUI/resolve/main/hubert_base/preprocessor_config.json"
-  },
-  {
-    "sha256": "cc8c20f4b90a520757260197a3ff2505705a7adbd20ad9eeaa4e1a9b38442ef5",
-    "destination": "assets/hubert_base/pytorch_model.bin",
-    "url": "https://huggingface.co/lj1995/VoiceConversionWebUI/resolve/main/hubert_base/pytorch_model.bin"
-  },
-  {
-    "sha256": "6d62215f4306e3ca278246188607209f09af3dc77ed4232efdd069798c4ec193",
-    "destination": "assets/rmvpe/rmvpe.pt",
-    "url": "https://huggingface.co/lj1995/VoiceConversionWebUI/resolve/main/rmvpe.pt"
-  },
-  {
-    "sha256": "12f819e129c6e48779439e491b85593b8819d094f751c3515ea13be6bd8b5a59",
-    "destination": "assets/weights/female.pth",
-    "url": "https://huggingface.co/Nekochu/RVC-VCTK_Voice-sample/resolve/main/F/p231/rmvpe/Fp231rmvpe.pth"
-  },
-  {
-    "sha256": "14c3a6fb421ed0c77654bb9ed5778307ff0204d7b047b6bbe37922af42f601ab",
-    "destination": "assets/weights/female.index",
-    "url": "https://huggingface.co/Nekochu/RVC-VCTK_Voice-sample/resolve/main/F/p231/rmvpe/added_IVF1216_Flat_nprobe_1_Fp231rmvpe_v2.index"
+    "sha256": "9fbb9927af5060c78eb84fd4b630a8c23d107cacaefbe57e28db3d60cbf06ce9",
+    "destination": "assets/weights/indic-female.pth",
+    "url": "https://huggingface.co/DreamSyncCo/IndicVoiceChanger/resolve/main/Indic-seed-uvit-tat-xlsr-tiny.pth"
   }
 ]

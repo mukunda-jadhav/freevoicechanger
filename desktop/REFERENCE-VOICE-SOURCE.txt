@@ -1,0 +1,14 @@
+Female reference voice source
+
+The included file assets/reference/female-reference.wav is the public
+Seed-VC demo sample examples/reference/s1p1.wav:
+https://huggingface.co/spaces/Plachta/Seed-VC/resolve/main/examples/reference/s1p1.wav
+
+A public voice mapping lists this sample as female and the matching s1p2 sample
+as male:
+https://huggingface.co/RedRepter/seed-vc-api/blob/main/api.py
+
+The sample is used as the target voice prompt; the app does not identify or
+claim to represent a specific person. The sample repository does not provide
+separate audio-license metadata, so retain this attribution and review the
+source terms before redistributing the app publicly.
