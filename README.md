@@ -4,7 +4,7 @@ Windows desktop male-to-female voice changer using one public female reference v
 
 ## Download
 
-The `femalevocal-indic` branch contains the updated source. The existing `desktop-preview` release is still the earlier build until this branch is merged and its Windows release workflow completes.
+The `femalevocal-indic` branch builds the Windows preview. After GitHub Actions finishes, download the installer below. If the release does not show the new files yet, check the branch's Actions page for build status.
 
 After release, the Windows installer will be available here:
 
